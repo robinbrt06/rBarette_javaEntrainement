@@ -13,21 +13,21 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
         Formateur formateur = new Formateur(1, "Dupont");
-        Formation java = new FormationPresentielle(1, "Java", 3, 200);
-        Formation sql = new FormationEnLigne(2, "SQL", 4, 30);
-        formateur.addFormation(java);
-        formateur.addFormation(sql);
+        Formation formation1 = new FormationPresentielle(1, "Java", 3, 200);
+        Formation formation2 = new FormationEnLigne(2, "SQL", 4, 30);
+        formateur.addFormation(formation1);
+        formateur.addFormation(formation2);
 
-        Competence poo = new Competence(1, "POO");
-        java.addCompetence(poo);
+        Competence competence1 = new Competence(1, "POO");
+        formation1.addCompetence(competence1);
 
-        Etudiant romain = new Etudiant(1, "Romain", "romain@test.fr");
-        new Inscription(1, LocalDate.of(2024, 12, 12), 10, romain, java);
-        new Inscription(2, LocalDate.of(2025, 1, 15), 0, romain, sql);
+        Etudiant etudiant1 = new Etudiant(1, "Romain", "romain@test.fr");
+        new Inscription(1, LocalDate.of(2024, 12, 12), 10, etudiant1, formation1);
+        new Inscription(2, LocalDate.of(2025, 1, 15), 0, etudiant1, formation2);
 
-        System.out.println(java.getTitre() + " : " + java.calculerPrix());
-        System.out.println(sql.getTitre() + " : " + sql.calculerPrix());
-        System.out.println(romain.getNom() + " : " + romain.calculerTotalDepense());
+        System.out.println(formation1.getTitre() + " : " + formation1.calculerPrix());
+        System.out.println(formation2.getTitre() + " : " + formation2.calculerPrix());
+        System.out.println(etudiant1.getNom() + " : " + etudiant1.calculerTotalDepense());
         System.out.println(formateur.getNom() + " : " + formateur.calculerChiffreAffaires());
     }
 }
