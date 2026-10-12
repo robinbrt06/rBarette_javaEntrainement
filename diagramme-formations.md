@@ -129,25 +129,23 @@ OTM et MTO sont la même relation lue depuis chaque bout, donc un seul trait sur
 | `calculerTotalDepense()` | `Etudiant` | somme des `calculerMontant()` de ses inscriptions |
 | `calculerChiffreAffaires()` | `Formateur` | somme des `calculerMontant()` des inscriptions de toutes ses formations |
 
-## Tests unitaires
+## Tests
 
-| Classe de test | Cas | Attendu |
+Les tests sont dans le package `test`, à côté de `model`. Chaque classe a un `main` qui affiche les résultats.
+
+| Classe de test | Cas | Affiché |
 |---|---|---|
-| `FormationPresentielleTest` | 3 jours à 200 | 600 |
-| | 0 jour à 200 | 0 |
-| `FormationEnLigneTest` | 4 mois à 30 | 120 |
-| | 0 mois à 30 | 0 |
-| `InscriptionTest` | présentielle 600 avec 10 % | 540 |
-| | en ligne 120 sans remise | 120 |
-| | remise de 100 % | 0 |
-| | le constructeur ajoute l'inscription chez l'étudiant et la formation | liées |
-| `EtudiantTest` | aucune inscription | 0 |
-| | 540 + 120 | 660 |
-| | `sInscrire` crée une inscription liée | liée |
-| `FormateurTest` | `addFormation` renseigne le formateur de la formation | lié |
-| | aucune formation | 0 |
-| | 540 + 600 + 60 | 1200 |
-| `CompetenceTest` | `addCompetence` lie les deux côtés | liés |
-| | une compétence dans deux formations | 2 |
-
-Lancer les tests : `mvn test`
+| `TestFormationPresentielle` | 3 jours à 200 | 600.0 |
+| | 0 jour à 200 | 0.0 |
+| `TestFormationEnLigne` | 4 mois à 30 | 120.0 |
+| | 0 mois à 30 | 0.0 |
+| `TestInscription` | présentielle 600 avec 10 % | 540.0 |
+| | en ligne 120 sans remise | 120.0 |
+| | inscriptions de l'étudiant / de la formation | 2 / 1 |
+| `TestEtudiant` | 540 + 120 | 660.0 |
+| | aucune inscription | 0.0 |
+| `TestFormateur` | formations du formateur | 2 |
+| | formateur de la formation Java | Dupont |
+| | 540 + 600 + 60 | 1200.0 |
+| `TestCompetence` | Java : POO + Algo | 2 compétences |
+| | POO dans Java et C++ | 2 formations |
