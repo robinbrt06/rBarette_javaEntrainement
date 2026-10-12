@@ -11,22 +11,22 @@ import java.time.LocalDate;
 public class TestFormateur {
     public static void main(String[] args) {
         Formateur formateur = new Formateur(1, "Dupont");
-        FormationPresentielle java = new FormationPresentielle(1, "Java", 3, 200);
-        FormationEnLigne sql = new FormationEnLigne(2, "SQL", 4, 30);
+        FormationPresentielle formation1 = new FormationPresentielle(1, "Java", 3, 200);
+        FormationEnLigne formation2 = new FormationEnLigne(2, "SQL", 4, 30);
 
-        formateur.addFormation(java);
-        formateur.addFormation(sql);
+        formateur.addFormation(formation1);
+        formateur.addFormation(formation2);
 
-        Etudiant romain = new Etudiant(1, "Romain", "romain@test.fr");
-        Etudiant lea = new Etudiant(2, "Lea", "lea@test.fr");
+        Etudiant etudiant1 = new Etudiant(1, "Romain", "romain@test.fr");
+        Etudiant etudiant2 = new Etudiant(2, "Lea", "lea@test.fr");
 
-        new Inscription(1, LocalDate.of(2024, 12, 12), 10, romain, java);
-        new Inscription(2, LocalDate.of(2024, 12, 13), 0, lea, java);
-        new Inscription(3, LocalDate.of(2025, 1, 15), 50, lea, sql);
+        new Inscription(1, LocalDate.of(2024, 12, 12), 10, etudiant1, formation1);
+        new Inscription(2, LocalDate.of(2024, 12, 13), 0, etudiant2, formation1);
+        new Inscription(3, LocalDate.of(2025, 1, 15), 50, etudiant2, formation2);
 
         System.out.println("formateur " + formateur.getId() + " " + formateur.getNom());
         System.out.println("formations : " + formateur.getFormations().size());
-        System.out.println("formateur de " + java.getTitre() + " : " + java.getFormateur().getNom());
+        System.out.println("formateur de " + formation1.getTitre() + " : " + formation1.getFormateur().getNom());
         System.out.println("chiffre d'affaires : " + formateur.calculerChiffreAffaires());
     }
 }
